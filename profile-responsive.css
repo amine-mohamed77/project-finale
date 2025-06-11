@@ -1,0 +1,997 @@
+/* Profile Responsive Styles */
+
+/* Base styles for all devices */
+:root {
+  --sidebar-width: 280px;
+  --content-padding: 2rem;
+  --card-gap: 1.5rem;
+  --mobile-breakpoint: 768px;
+  --tablet-breakpoint: 992px;
+  --laptop-breakpoint: 1200px;
+}
+
+/* Global fix for horizontal scrolling */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Improve base profile layout */
+.profile-section {
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px); /* Ensure full screen height minus header */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Profile Section Visibility */
+.profile-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.profile-sidebar {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.profile-content {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Dashboard stats responsiveness */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--card-gap);
+  margin-bottom: 2rem;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Enhanced stat card styles */
+.stat-card {
+  display: flex;
+  flex-direction: column; /* Changed to column layout */
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible; /* Changed from hidden to visible */
+  position: relative;
+  min-height: 120px; /* Increased min-height */
+  width: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #4f7df9;
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1rem; /* Changed from margin-right to margin-bottom */
+  flex-shrink: 0;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  flex: 1;
+  width: 100%; /* Added full width */
+}
+
+.stat-info h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0 0 0.5rem 0; /* Increased bottom margin */
+  white-space: normal; /* Changed from nowrap to normal */
+  overflow: visible; /* Changed from hidden to visible */
+  text-overflow: clip; /* Changed from ellipsis to clip */
+  line-height: 1.3; /* Added line height */
+  width: 100%; /* Added full width */
+}
+
+.stat-number {
+  font-size: 1.75rem; /* Increased font size */
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+  width: 100%; /* Added full width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Style for long text like email addresses */
+.stat-number.long-text {
+  font-size: 1rem;
+  word-break: break-word;
+  white-space: normal;
+  line-height: 1.4;
+  max-height: 4.2em; /* Limit to ~3 lines */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+}
+
+/* Listings and favorites grid */
+.listings-grid,
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--card-gap);
+}
+
+/* Property Card Styles */
+.property-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  position: relative;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.property-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.property-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+}
+
+.property-badge span {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(79, 125, 249, 0.9);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.property-badge i {
+  margin-right: 0.4rem;
+  color: #ff4757;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image img {
+  transform: scale(1.05);
+}
+
+.property-details {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.property-details h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.property-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4f7df9;
+  margin: 0 0 0.75rem 0;
+}
+
+.property-location {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.property-location i {
+  margin-right: 0.5rem;
+  color: #4f7df9;
+}
+
+.property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.property-features span {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.property-features i {
+  margin-right: 0.4rem;
+  color: #4f7df9;
+}
+
+.property-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 0.75rem;
+}
+
+/* Settings section */
+.settings-grid {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: var(--card-gap);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: none;
+  line-height: 1.5;
+}
+
+.btn i {
+  margin-right: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #4f7df9;
+  color: white;
+  box-shadow: 0 2px 4px rgba(79, 125, 249, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #3a68e0;
+  box-shadow: 0 4px 8px rgba(79, 125, 249, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #4f7df9;
+  border: 1px solid #4f7df9;
+}
+
+.btn-outline:hover {
+  background-color: rgba(79, 125, 249, 0.1);
+  color: #3a68e0;
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h1 {
+  margin: 0;
+}
+
+/* Form responsiveness */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Large Desktop (1400px and up) */
+@media (min-width: 1400px) {
+  .profile-grid {
+    max-width: 1320px;
+  }
+  
+  .dashboard-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .listings-grid,
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .profile-grid {
+    max-width: 1140px;
+  }
+  
+  .dashboard-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Laptop/Small Desktop (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  :root {
+    --sidebar-width: 250px;
+    --content-padding: 1.5rem;
+  }
+  
+  .profile-grid {
+    max-width: 960px;
+  }
+  
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .listings-grid,
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  :root {
+    --content-padding: 1.25rem;
+    --card-gap: 1rem;
+  }
+  
+  .profile-grid {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+  
+  .profile-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  .profile-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .profile-nav li {
+    margin-bottom: 0;
+  }
+  
+  .profile-nav a {
+    padding: 0.75rem 1rem;
+  }
+  
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem; /* Increased gap */
+  }
+  
+  .stat-card {
+    min-height: 140px; /* Ensure enough height */
+    padding: 1.25rem;
+  }
+  
+  .stat-info h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  :root {
+    --content-padding: 1rem;
+    --card-gap: 1rem;
+  }
+  
+  .profile-section {
+    padding: 1rem 0;
+    min-height: calc(100vh - 70px); /* Adjusted for smaller header on mobile */
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  .profile-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .profile-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Improve table responsiveness on mobile */
+  .demands-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    width: calc(100% + 2rem);
+  }
+  
+  /* Make sure forms don't overflow on mobile */
+  form, .form-row, .form-group {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input, select, textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Improve property cards and favorites grid */
+  .property-grid, .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  /* Better button sizing on mobile */
+  .btn, button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Improve spacing in profile sections */
+  .profile-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .profile-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+  }
+}
+
+/* Extra Small Mobile (600px and below) */
+@media (max-width: 600px) {
+  :root {
+    --content-padding: 0.75rem;
+    --card-gap: 0.75rem;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .profile-sidebar {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-content {
+    padding: 0.75rem;
+  }
+  
+  /* Smaller font sizes for very small screens */
+  .profile-section h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Adjust buttons for very small screens */
+  .btn, button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Make dashboard stats more compact */
+  .dashboard-stats {
+      grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stat-card {
+    padding: 0.75rem;
+    min-height: auto;
+  }
+  
+  /* Adjust form elements for very small screens */
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+  
+  /* Make tables more compact */
+  .demands-table th, .demands-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  
+  /* Make user avatar smaller on very small screens */
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Improve navigation on small screens */
+  .profile-nav ul {
+    gap: 0.25rem;
+  }
+  
+  .profile-nav a {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.85rem;
+  }
+  
+  .profile-nav a i {
+    margin-right: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Better spacing for activity items */
+  .activity-item {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Improve message display */
+  .message-item {
+    padding: 0.75rem;
+  }
+}
+
+/* Very Small Mobile (400px and below) */
+@media (max-width: 400px) {
+  :root {
+    --content-padding: 0.5rem;
+    --card-gap: 0.5rem;
+  }
+  
+  .container {
+    padding: 0 0.4rem;
+  }
+  
+  .profile-sidebar {
+    padding: 0.6rem;
+  }
+  
+  .profile-content {
+    padding: 0.6rem;
+  }
+  
+  /* Even smaller font sizes */
+  .profile-section h1 {
+    font-size: 1.1rem;
+  }
+  
+  .profile-section h2 {
+    font-size: 1rem;
+  }
+  
+  /* Tiny buttons for very small screens */
+  .btn, button {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Extremely compact dashboard */
+  .dashboard-stats {
+     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .stat-card {
+    padding: 0.6rem;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  /* Stack navigation items vertically */
+  .profile-nav ul {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .profile-nav li {
+    width: 100%;
+  }
+  
+  .profile-nav a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.5rem;
+  }
+  
+  /* Smaller avatar */
+  .user-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Adjust table text size */
+  .demands-table th, .demands-table td {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+  
+  /* Improve form elements for tiny screens */
+  input, select, textarea {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+  
+  /* Better spacing for activity items */
+  .activity-item {
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  /* Adjust message display */
+  .message-item {
+    padding: 0.6rem;
+  }
+  
+  /* Make sure buttons in tables are usable */
+  .demands-table .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .demands-table .action-buttons .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.user-info h2 {
+  font-size: 1.25rem;
+}
+  
+  .profile-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .profile-nav li {
+    margin-bottom: 0;
+    flex: 1 0 calc(50% - 0.5rem);
+  }
+  
+  .profile-nav a {
+    padding: 0.75rem 0.5rem;
+    justify-content: center;
+  }
+  
+  .profile-nav a i {
+    margin-right: 0.35rem;
+  }
+  
+  .dashboard-stats {
+    grid-template-rows: 1fr;
+    margin: 0 auto 1.5rem;
+    max-width: 100%;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem; /* Increased padding */
+    margin-bottom: 0.5rem;
+    width: 100%;
+    /* Changed back to column layout for mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto; /* Auto height on mobile */
+  }
+  
+  .stat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 1rem; /* Use margin-bottom instead of margin-right */
+    margin-right: 0;
+  }
+  
+  .stat-info {
+    width: 100%; /* Full width */
+    padding-right: 0.5rem; /* Add some padding */
+  }
+  
+  .stat-info h3 {
+    font-size: 1rem; /* Increased font size */
+    white-space: normal;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem; /* Increased font size */
+    line-height: 1.1;
+    font-weight: 600;
+  }
+  
+  .listings-grid,
+  .favorites-grid {
+    grid-template-rows: 1fr;
+  }
+  
+  .settings-grid {
+    grid-template-rows: 1fr;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .section-header h1 {
+    margin-bottom: 0;
+  }
+  
+  .activity-item {
+    padding: 0.75rem;
+  }
+  
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
+  .activity-content p {
+    font-size: 0.9rem;
+  }
+  
+  .activity-time {
+    font-size: 0.8rem;
+  }
+
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .profile-content {
+    padding: 0.75rem;
+  }
+  
+  .profile-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-nav li {
+    flex: 1 0 100%;
+  }
+  
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  
+  .form-actions button,
+  .form-actions .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Active state for sidebar menu items */
+.profile-nav a.active {
+    background: var(--primary-color);
+    color: white !important;
+}
+
+.profile-nav a.active i {
+    color: white;
+}
+
+/* Profile Navigation Styles */
+.profile-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.profile-nav li.active a {
+    background-color: #4f7df9;
+    color: white !important;
+}
+
+.profile-nav li.active a i {
+    color: white !important;
+}
+
+.profile-nav a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.profile-nav a:hover {
+    background-color: #f5f7fa;
+}
+
+.profile-nav li.active a:hover {
+    background-color: #4067d6;
+}
+
+/* Profile Section Display */
+.profile-content > .profile-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-content > .profile-section.active {
+    display: block;
+    opacity: 1;
+}

@@ -1,0 +1,137 @@
+/* Message Form Responsive Styles */
+.message-form {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #e6e6e6;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    z-index: 50;
+}
+
+/* Message input */
+#message-input {
+    flex: 1;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 0 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Send button */
+.message-form .btn-primary {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: #1877f2;
+    border: none;
+    margin-left: 5px;
+}
+
+/* Image upload button */
+.image-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0f2f5;
+    cursor: pointer;
+    color: #65676b;
+}
+
+/* Image preview container */
+#image-preview-container {
+    position: relative;
+    margin-right: 8px;
+}
+
+#image-preview {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+}
+
+#remove-image {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #1c1e21;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+/* Message thread adjustments to make room for fixed message form */
+.message-thread {
+    padding-bottom: 70px !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .message-form {
+        padding: 8px 12px;
+    }
+    
+    #message-input {
+        margin: 0 8px;
+        padding: 8px 12px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 576px) {
+    .message-form {
+        padding: 8px 10px;
+    }
+    
+    .image-upload-label {
+        width: 32px;
+        height: 32px;
+    }
+    
+    #message-input {
+        margin: 0 6px;
+        padding: 6px 10px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .message-form {
+        padding: 6px 8px;
+    }
+    
+    #message-input {
+        max-width: calc(100% - 90px);
+        padding: 6px 10px;
+    }
+    
+    .message-form .btn-primary {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+}

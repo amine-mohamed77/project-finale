@@ -1,0 +1,155 @@
+/* Styling for the demands table in Profile.php */
+.demands-list {
+    margin-top: 20px;
+    overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+.demands-table {
+    width: 100%;
+    min-width: 650px; /* Minimum width to ensure readability */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; /* Fixed table layout for better control */
+}
+
+.demands-table thead {
+    background-color: #4a6ee0;
+    color: white;
+}
+
+.demands-table th, 
+.demands-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+
+/* Apply ellipsis to all cells except the actions column */
+.demands-table td:not(:last-child) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Column width definitions */
+.demands-table th:nth-child(1), .demands-table td:nth-child(1) { width: 10%; } /* City */
+.demands-table th:nth-child(2), .demands-table td:nth-child(2) { width: 15%; } /* Location */
+.demands-table th:nth-child(3), .demands-table td:nth-child(3) { width: 18%; } /* Property Type */
+.demands-table th:nth-child(4), .demands-table td:nth-child(4) { width: 10%; } /* Budget */
+.demands-table th:nth-child(5), .demands-table td:nth-child(5) { width: 18%; } /* Move-in Date */
+.demands-table th:nth-child(6), .demands-table td:nth-child(6) { width: 16%; } /* Posted On */
+.demands-table th:nth-child(7), .demands-table td:nth-child(7) { width: 25%; } /* Actions - increased width */
+
+.demands-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.demands-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: flex-start;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.demands-table .btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.demands-table .btn-sm i {
+    margin-right: 5px;
+}
+
+.demands-table .btn-outline {
+    background-color: #f8f9fa;
+    border: 1px solid #4a6ee0;
+    color: #4a6ee0;
+}
+
+.demands-table .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+}
+
+.demands-table .btn-outline:hover {
+    background-color: #4a6ee0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.demands-table .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.empty-state p {
+    color: #777;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Alert messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

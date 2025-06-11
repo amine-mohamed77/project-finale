@@ -1,0 +1,138 @@
+/* Chat Image Upload Styles */
+
+/* Image upload button */
+.image-upload-label {
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.image-upload-label:hover {
+    background-color: #e4e6eb;
+}
+
+.image-upload-label i {
+    color: #1877f2;
+    font-size: 1.2rem;
+}
+
+/* Image preview container */
+#image-preview-container {
+    position: relative;
+    margin: 5px 10px;
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-preview {
+    max-width: 150px;
+    max-height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+#remove-image {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #ff4d4f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Message form with image upload */
+.message-form {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #e6e6e6;
+}
+
+/* Message image in chat bubbles */
+.message-image-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 250px;
+    width: 100%;
+}
+
+.message-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    object-fit: contain;
+}
+
+.message-image:hover {
+    opacity: 0.9;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .message-image-container {
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .message-image {
+        max-height: 200px;
+    }
+    
+    #image-preview-container {
+        max-width: 100px;
+    }
+    
+    #image-preview {
+        max-width: 100px;
+        max-height: 70px;
+    }
+    
+    /* Improve bubble content on small screens */
+    .bubble-content {
+        max-width: 85%;
+        word-break: break-word;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .message-image-container {
+        max-width: 180px;
+    }
+    
+    .message-image {
+        max-height: 180px;
+    }
+    
+    /* Ensure message bubbles don't overflow */
+    .message-bubble {
+        max-width: 85%;
+    }
+    
+    /* Make sure avatar size is appropriate */
+    .avatar img {
+        width: 30px;
+        height: 30px;
+    }
+}

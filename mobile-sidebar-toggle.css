@@ -1,0 +1,69 @@
+/* Mobile Sidebar Toggle Button Styles */
+.mobile-toggle-sidebar {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle-sidebar:hover {
+    background-color: #166fe5;
+}
+
+.mobile-toggle-sidebar i {
+    font-size: 18px;
+}
+
+/* Show the button only on mobile devices */
+@media (max-width: 576px) {
+    .mobile-toggle-sidebar {
+        display: flex;
+    }
+    
+    /* Adjust chat header to make room for the toggle button */
+    .chat-header {
+        padding-left: 60px !important;
+    }
+    
+    /* Sidebar visibility class for mobile */
+    .chat-sidebar.sidebar-visible {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /* Default state of sidebar on mobile */
+    .chat-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 300px;
+        z-index: 1000;
+        transform: translateX(-100%);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .chat-sidebar.sidebar-visible {
+        width: 85%;
+    }
+}
